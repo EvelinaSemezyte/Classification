@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html ng-app='myApp' lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Duomenu sifravimas</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.10.8/xlsx.full.min.js"></script>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.9/angular.min.js"></script>
+
+  </head>
+  <body ng-controller='MyController'>
+
+
+    <div class="column">
+      <div style="overflow-x:auto;">
+
+          <form enctype="multipart/form-data">
+            <input type="file" id="file"> <br>
+            <button type="submit" name="submit" ng-click="uploadExcel()"> Pateikti failą </button>
+          </form>
+
+          <table id="myTable">
+            <thead>
+              <tr>
+                  <th>ID</th>
+                  <th>X1</th>
+                  <th>Y1</th>
+                  <th>Klasė</th>
+              </tr>
+            </thead>
+            <tbody id="Clean">
+
+            </tbody>
+          </table>
+    </div>
+  </div>
+    <div class="column">
+        <h4> K reikšmė</h4>
+        <input type="text" name="k" value="" id="K">
+        <h4> X2 reikšmė</h4>
+        <input type="text" name="X1" value="" id="X1">
+        <h4> Y2 reikšmė</h4>
+        <input type="text" name="Y2" value="" id="Y1">
+        <div>
+          <br>
+          <button onclick="Sort()">Skaiciuoti pagal viena formule</button> <br>
+          <button onclick="Two()">Skaiciuoti pagal dvi formule</button><br>
+          <button onclick="Clean()">Isvalyti duomenis</button><br>
+          <button onclick="Add('myTable')">prideti elementa</button><br>
+
+        </div>
+    </div>
+
+
+      <div class="column">
+        <table id="myTableSort">
+          <thead>
+            <tr>
+                <th>ID</th>
+                <th>X1</th>
+                <th>Y1</th>
+                <th>Klasė</th>
+                <th>Atstumas1</th>
+                <th>Atstumas2</th>
+            </tr>
+          </thead>
+          <tbody id="tbody">
+          </tbody>
+        </table>
+
+
+        <table id="newElement">
+          <thead>
+            <tr>
+                <th>X2</th>
+                <th>Y2</th>
+                <th>Klasė</th>
+            </tr>
+          </thead>
+          <tbody id="newtbody">
+          </tbody>
+        </table>
+    </div>
+
+<script type="text/javascript" src="bs/customjs.js"></script>
+</body>
+
+
+</html>
